@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="animal"
+            type="com.examples.animalsappmvvm.model.AnimalModel"/>
+
+        <variable
+            name="listener"
+            type="com.examples.animalsappmvvm.view.listeners.AnimalClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/animalLayout"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{listener::onClick}"
+        android:tag="@{animal.name}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/animalAppCompatImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher_round"
+            android:imageUrl="@{animal.imageUrl}"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animalNameMaterialTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/animalAppCompatImageView"
+            app:layout_constraintStart_toStartOf="@id/animalAppCompatImageView"
+            app:layout_constraintEnd_toEndOf="@id/animalAppCompatImageView"
+            android:background="#afff"
+            android:layout_marginBottom="20dp"
+            android:text="@{animal.name}"
+            android:gravity="center"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

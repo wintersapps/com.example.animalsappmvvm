@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="animal"
+            type="com.examples.animalsappmvvm.model.AnimalModel" />
+        <variable
+            name="palette"
+            type="com.examples.animalsappmvvm.model.AnimalPalette" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@{palette.color}"
+        android:id="@+id/animalLinearLayout"
+        tools:context=".view.fragments.DetailFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/animalAppCompatImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:minHeight="200dp"
+            android:imageUrl="@{animal.imageUrl}"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animalNameMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@{animal.name}"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animalLocationMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@{animal.location}"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animalLifespanMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@{animal.lifespan}"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animalDietMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@{animal.diet}"/>
+
+    </LinearLayout>
+</layout>
